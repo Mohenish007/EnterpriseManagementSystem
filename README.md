@@ -1,42 +1,92 @@
-This is a HRMS Backend application that combines many human resources functions.It provides opportunities for the HR agents of a company to manage employees, departments, jobs and job seekers. The HR agent can view the list of all employees using filters, for example viewing a list of employees of a particular department. Create, delete or edit employee records in the system. Manage the company position, such as creating, updating, or deleting job offers. Manage payrolls of the employee.
-📜 Project Main features
+📌 About the Project
 
-Our backend is powered by 5 microservices, all of which happen to be written in java using Spring Boot and JavaScript using NodeJS.
-Employees Service: Provides PIM (Personal information management for employees and candidates). Provides employees information like hiring date, email, role, date of birth etc.
-Recruitment Service: Provides recruitment information like Job Postings, Job Applicants etc.
-Position Service: Provides postion information like designation, department name, employees etc.
-Payroll Service: Provides payroll information like salaries etc.
-Holiday/Leave Service: Provides holiday or leave information. Managing leave and defining holidays.
-📐 Project Technical Architecture
+This is a backend Human Resource Management System (HRMS) built using a microservices architecture with Spring Boot and Node.js.
+It enables HR professionals to efficiently manage employees, departments, recruitment processes, job positions, payroll, and leave records within a scalable and modular system.
 
-Our sample microservices-based system consists of the following modules:
-gateway-service : a module for running Spring Boot application that acts as a proxy/gateway in our architecture.
-config-service : a module that uses Spring Cloud Config Server for running configuration server in the native mode. The configuration files are placed on the classpath.
-discovery-service : a module thats Spring Cloud Eureka as an embedded discovery server.
-employee-service : a module containing the 1st microservice that allows to perform CRUD operation on in-memory repository of employee.
-payroll-service : a module containing the 2nd microservice that allows to perform CRUD operation on in-memory repository of payrolls. It communicates with account-service.
-recruitement-service : a module containing the 3rd microservices that allows to perform CRUD operation on in-memory repository of recruitements.
-position-service : a module containing the 4th microservices that allows to perform CRUD operation on in-memory repository of positions.
-leave/holiday-service : a module containing the 5th microservices that allows to perform CRUD operation on in-memory repository of leave and holidays.
+The application allows HR agents to:
 
-⚡ Usage
+View and filter employee data (e.g., by department)
+Create, update, and delete employee records
+Manage job postings and applicants
+Handle payroll and salary information
+Track employee leaves and holidays
+🚀 Key Features
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-🚩 Roadmap
+The system consists of 5 core microservices, each handling a specific HR function:
 
-
- Phase 1 : Implementation of Discovery and Gateway services
-
-Implementation of Eureka as a discovery server
-Implementation of Zull as a gateway or proxy server
-Implementation of config server
-
-Phase 2 : Implementation of the main application microservices
-Employees Service
-Recruitment Service
-Position Service
-Payroll Service
-Leave/Holiday Service
-
- Phase 3 : Deployement of microservices using Docker
+Employee Service
+Manages employee and candidate information such as hiring date, email, role, and personal details.
+Recruitment Service
+Handles job postings, applications, and recruitment workflows.
+Position Service
+Manages job roles, departments, and organizational structure.
+Payroll Service
+Handles employee salary and payroll-related data.
+Leave/Holiday Service
+Manages employee leaves and company holidays.
+🏗️ Technical Architecture
 
+This system follows a microservices-based architecture with the following core modules:
+
+Gateway Service
+Acts as the entry point for all client requests (API Gateway).
+Config Service
+Centralized configuration management using Spring Cloud Config.
+Discovery Service
+Service registry using Netflix Eureka for dynamic service discovery.
+Employee Service
+Handles CRUD operations for employee data.
+Payroll Service
+Manages payroll data and communicates with other services.
+Recruitment Service
+Manages recruitment-related operations.
+Position Service
+Handles job roles and department-related data.
+Leave/Holiday Service
+Manages leave requests and holiday data.
+🔐 Authentication Flow
+Users must register via the Auth Service
+A token is generated upon successful authentication
+All requests pass through the Gateway Service
+The gateway validates the token before granting access to microservices
+🛠️ Tech Stack
+Backend: Spring Boot, Node.js
+Databases: MySQL, MongoDB
+Containerization: Docker, Docker Compose
+Architecture: Microservices, REST APIs
+Cloud Tools: Spring Cloud, Netflix OSS
+⚡ Getting Started
+📋 Prerequisites
+
+Make sure you have installed:
+
+Java (JDK 8 or above)
+Maven
+Docker
+🧑‍💻 Installation
+Clone the repository
+git clone https://github.com/your-username/your-repo-name.git
+Build all microservices
+mvn clean package
+Run the application using Docker
+docker-compose up
+🌐 Access the Application
+
+Open your browser and visit:
+
+http://localhost:8761
+
+👉 This will open the Eureka Dashboard, where all services are registered.
+
+📈 Roadmap
+✅ Phase 1
+Setup Discovery Service (Eureka)
+Setup Gateway Service (Zuul)
+Setup Config Server
+✅ Phase 2
+Implement core microservices:
+Employee Service
+Recruitment Service
+Position Service
+Payroll Service
+Leave/Holiday Service

@@ -31,8 +31,7 @@ Use this space to show useful examples of how a project can be used. Additional 
 Implementation of Zull as a gateway or proxy server
 Implementation of config server
 
- Phase 2 : Implementation of the main application microservices
-
+Phase 2 : Implementation of the main application microservices
 Employees Service
 Recruitment Service
 Position Service
@@ -40,4 +39,4 @@ Use this space to show useful examples of how a project can be used. Additional 
 Leave/Holiday Service
 
  Phase 3 : Deployement of microservices using Docker
-
+

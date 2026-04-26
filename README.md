@@ -1,21 +1,43 @@
-# EnterpriseManagementSystem
-### Enterprise Management System (EMS) is an application for small to medium size enterprises and companies. It is an application for managing your employees, payrolls, clients, invoices, GST etc.. For help and support, please use the [support](http://www.alegralabs.com/ems/support) page.
+This is a HRMS Backend application that combines many human resources functions.It provides opportunities for the HR agents of a company to manage employees, departments, jobs and job seekers. The HR agent can view the list of all employees using filters, for example viewing a list of employees of a particular department. Create, delete or edit employee records in the system. Manage the company position, such as creating, updating, or deleting job offers. Manage payrolls of the employee.
+📜 Project Main features
 
-#### Installation steps
-1. Clone or download the repository into your local machine or your web server.
-2. Create a database on your local machine or server. Add a user to this database with all privileges. You should remember the name of database, username & password, as you will require them during setup.
-3. In the EMS application, you will see a folder called “settings”. Inside it, you will find a file called config.php. Edit this file, in your favourite editor. Each and every line in this file is self explanatory.
- - (a) You will first need to enter your database credentials.
- - (b) Then you will also have to edit the absolute path i.e., where you have installed or running the EMS. Similarly, edit the email address of all out going emails. Out going emails will go to your employees and clients. You can disable out going emails to clients by changing the $sendEmailToClient from true to false.
-Likewise, there are more customised options available in this config file.
-Apart from the database credentials, you can change all other values later, if you want.
-4. EMS generates PDF’s for Invoices for clients and Payrolls for employees. For this, the system uses the popular WKHTMLTOPDF.
- You will need to install WKHTMLTOPDF in your machine or server.
+Our backend is powered by 5 microservices, all of which happen to be written in java using Spring Boot and JavaScript using NodeJS.
+Employees Service: Provides PIM (Personal information management for employees and candidates). Provides employees information like hiring date, email, role, date of birth etc.
+Recruitment Service: Provides recruitment information like Job Postings, Job Applicants etc.
+Position Service: Provides postion information like designation, department name, employees etc.
+Payroll Service: Provides payroll information like salaries etc.
+Holiday/Leave Service: Provides holiday or leave information. Managing leave and defining holidays.
+📐 Project Technical Architecture
 
-A nice tutorial, for how to install WKHTMLTOPDF is available here https://jaimegris.wordpress.com/2015/03/04/how-to-install-wkhtmltopdf-in-centos-7-0/
+Our sample microservices-based system consists of the following modules:
+gateway-service : a module for running Spring Boot application that acts as a proxy/gateway in our architecture.
+config-service : a module that uses Spring Cloud Config Server for running configuration server in the native mode. The configuration files are placed on the classpath.
+discovery-service : a module thats Spring Cloud Eureka as an embedded discovery server.
+employee-service : a module containing the 1st microservice that allows to perform CRUD operation on in-memory repository of employee.
+payroll-service : a module containing the 2nd microservice that allows to perform CRUD operation on in-memory repository of payrolls. It communicates with account-service.
+recruitement-service : a module containing the 3rd microservices that allows to perform CRUD operation on in-memory repository of recruitements.
+position-service : a module containing the 4th microservices that allows to perform CRUD operation on in-memory repository of positions.
+leave/holiday-service : a module containing the 5th microservices that allows to perform CRUD operation on in-memory repository of leave and holidays.
 
-**You are done!**
+⚡ Usage
 
-Now open your browser and point to the setup file. For example, if your site is http://www.example.com and you have installed EMS in a folder called “ems”, than you will open http://www.example.com/ems/setup in your browser.
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+🚩 Roadmap
 
-Just follow the on screen instructions. To know the details of entering data in these screens, you can follow us on [support](http://www.alegralabs.com/ems/support) page.
+
+ Phase 1 : Implementation of Discovery and Gateway services
+
+Implementation of Eureka as a discovery server
+Implementation of Zull as a gateway or proxy server
+Implementation of config server
+
+ Phase 2 : Implementation of the main application microservices
+
+Employees Service
+Recruitment Service
+Position Service
+Payroll Service
+Leave/Holiday Service
+
+ Phase 3 : Deployement of microservices using Docker
+

@@ -1,6 +1,6 @@
 📌 About the Project
 
-This is a backend Human Resource Management System (HRMS) built using a microservices architecture with Spring Boot and Node.js.
+This is a backend Enterprise Management System (EMS) built using a microservices architecture with Spring Boot and Node.js.
 It enables HR professionals to efficiently manage employees, departments, recruitment processes, job positions, payroll, and leave records within a scalable and modular system.
 
 The application allows HR agents to:
